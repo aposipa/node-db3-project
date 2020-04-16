@@ -41,7 +41,9 @@ function update(changes, id) {
 }
 
 function remove(id) {
-    return db('schemes')
+    const deleted = findById(id)
+    db('schemes')
     .where('id', id)
     .del();
+    return deleted;
 }
